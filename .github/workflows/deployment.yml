@@ -38,6 +38,8 @@ jobs:
           run: npm test # another command
 
   deploy:
+    # now to make them sequential, not parallel
+    needs: first-job # ta da
     runs-on: ubuntu-latest
     steps:
         - name: Get code
