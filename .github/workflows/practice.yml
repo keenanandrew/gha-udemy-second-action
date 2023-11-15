@@ -1,0 +1,45 @@
+name: Andrew's Still Learning Actions
+
+on: push
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+
+        # First step: get the code on to GH's runner
+        # Now we use actions, which are more complex
+        # and probably repeated frequently.
+        # They can be homemade or acquired elsewhere
+
+        # The first action we need is 'checkout'
+        # which is supported by GH itself
+        - name: Get code
+
+        # using v3 to align with tutorial
+        # but v4 is the latest
+
+          uses: actions/checkout@v3
+          # I don't need to configure checkout
+          # the defaults are fine
+
+        - name: Get Node.js
+          # My chosen runner has lots of packages already
+          # But we're gonna practice pulling one anyway
+
+          uses: actions/setup-node@v3 # the action
+          with:
+              node-version: 18 # a config setting
+            
+        - name: Install dependencies
+          run: npm ci # a command line command, hence 'run' not 'uses'
+
+        - name: Run the actual tests
+          run: npm test # another command
+
+
+
+
+
+        
+
