@@ -1,6 +1,7 @@
 name: Deploy project
 
-on: push
+on: [push, workflow_dispatch]
+# the square brackets are how we determine multiple triggers
 
 jobs:
   first-job:
